@@ -1,0 +1,28 @@
+version: '3.3'
+
+networks:
+  linker:
+
+services:
+  flask:
+    build: ./
+    restart: always
+    networks:
+      - linker
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+    depends_on:
+      - mongodb
+    ports:
+      - 5000:5000
+
+
+  mongodb:
+    image: mongo
+    volumes:
+      - ./mongo_data:/data/db
+    networks:
+      - linker
+    ports:
+      - 27017:27017
