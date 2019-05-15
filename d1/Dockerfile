@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 WORKDIR /app
-RUN pwd
+RUN echo $(pwd)
 ADD . .
-RUN ls
-RUN pip install -r req.txt
-CMD gunicorn -b 0.0.0.0:5000 app:app
+RUN echo $(ls)
+CMD python app.py
+# RUN pip install -r req.txt

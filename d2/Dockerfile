@@ -4,4 +4,4 @@ RUN pwd
 ADD . .
 RUN ls
 # TODO: Change CMD to ENTRYPOINT
-CMD ["python", "app.py"]
+ENTRYPOINT ["python", "app.py"]
